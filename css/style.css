@@ -1,0 +1,182 @@
+/* todo 加入Google font Roboto分別載入字重100,400,700 */
+
+
+/*------ note general ------*/
+
+body {
+    background-color: #1E3C4B;
+    min-height: 1000px;
+    background-image: url('../img/cork-repeat.jpg');
+}
+
+.card-wrapper {
+    perspective: 300px;
+}
+
+.card-wrapper {}
+
+.card {
+    width: 600px;
+    margin: 100px auto;
+}
+
+.card>.upper-section,
+.card>.lower-section {
+    padding: 20px 20px;
+    position: relative;
+}
+
+
+/*------ note fonts ------*/
+
+* {
+    color: #333;
+}
+
+.dish-name {
+    font-size: 50px;
+    letter-spacing: 8px;
+    font-weight: 700;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 100;
+    letter-spacing: 5px;
+    margin: 0
+}
+
+
+/*------ note upper-section ------*/
+
+.upper-section {
+    background-color: white;
+    height: 220px;
+    z-index: 5;
+    color: white;
+    background-image: url('../img/salmon-steak.jpg');
+    background-size: cover;
+    transform: rotateX(25deg);
+    transform-origin: bottom;
+    filter: brightness(0.95) grayscale(50%);
+    /* todo 設定filter屬性控制照片明亮與飽和度 */
+}
+
+.upper-section .text {
+    margin-top: 80px;
+}
+
+.upper-section * {
+    color: white;
+}
+
+.upper-section p {
+    margin: 0;
+}
+
+.price {
+    margin-top: 15px;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 100;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+}
+
+.price:before {
+    content: "$";
+    margin-right: 5px;
+}
+
+.price:after {
+    content: "NTDDDDD";
+    margin-left: 5px;
+}
+
+
+/*------ note lower-section ------*/
+
+.lower-section {
+    background-color: white;
+    z-index: 1;
+    transform: rotateX(-120deg);
+    transform-origin: top;
+}
+
+.ingredients {
+    list-style: none;
+    padding-left: 0;
+}
+
+.ingredients>li {
+    height: 40px;
+    font-size: 18px;
+    line-height: 40px;
+    padding-left: 50px;
+    border-bottom: 1px dashed #dbdbdb;
+    position: relative;
+    /* 利用偽元素設計checklist點擊圖樣 */
+}
+
+.ingredients>li:before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #dbdbdb;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 5px;
+}
+
+.ingredients>li.done {
+    text-decoration: line-through;
+    cursor: pointer;
+}
+
+.ingredients>li.done:before {
+    background-image: url('../img/checked.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+/*------ note animation ------*/
+
+
+/* todo 設計.card:hover動畫 */
+
+.card:hover .upper-section,
+.card:hover .lower-section {
+    transform: rotateX(0);
+    filter: brightness(1) grayscale(0%);
+}
+
+.card:hover .price {
+    opacity: 1;
+}
+
+.card:hover .text {
+    margin-top: 100px;
+}
+
+.upper-section,
+.lower-section,
+.price,
+.text {
+    transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+}
+
+
+/* todo 設計.card:hover的3D動畫 */
+
+
+/* note circle */
+
+
+/* todo 設計底圖擴散圓圈特效動畫 */
